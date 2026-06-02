@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תצוגה מקדימה — מדד המומנטום | ישראל היום</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #eef0f5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    direction: rtl;
+    padding: 28px 14px;
+  }
+  .preview-note {
+    max-width: 720px; margin: 0 auto 20px;
+    background: #fff8e1; border: 1px solid #f0a500; border-radius: 8px;
+    padding: 8px 16px; font-size: .8rem; color: #7a6000;
+  }
+
+  /* ── הווידג'ט הראשי ── */
+  #iht-widget {
+    max-width: 720px; margin: 0 auto;
+    background: #fff; border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,.12);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    direction: rtl;
+  }
+
+  /* ── Header ── */
+  .iht-header {
+    background: linear-gradient(135deg, #0d2461 0%, #1a3a8c 100%);
+    padding: 18px 22px 14px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .iht-logo-area { display: flex; align-items: center; gap: 10px; }
+  .iht-logo-box {
+    background: #d62d20; color: #fff;
+    font-weight: 900; font-size: 1.05rem; letter-spacing: .5px;
+    padding: 5px 10px; border-radius: 5px; white-space: nowrap;
+  }
+  .iht-header-title {
+    color: #fff;
+    font-size: 1.08rem; font-weight: 700; line-height: 1.3;
+  }
+  .iht-header-sub { color: #9db8e8; font-size: .78rem; margin-top: 2px; }
+  .iht-updated-badge {
+    background: rgba(255,255,255,.12); color: #c8d8f8;
+    font-size: .72rem; padding: 4px 10px; border-radius: 20px;
+    white-space: nowrap; align-self: flex-start; margin-top: 2px;
+    border: 1px solid rgba(255,255,255,.2);
+  }
+
+  /* ── Tagline ── */
+  .iht-tagline {
+    background: #f4f7ff;
+    border-bottom: 1px solid #e0e8f8;
+    padding: 9px 22px;
+    font-size: .82rem; color: #3a5a9c;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .iht-tagline span { font-weight: 600; color: #0d2461; }
+
+  /* ── Body ── */
+  .iht-body { padding: 18px 22px 14px; }
+
+  /* ── מד קואליציה ── */
+  .iht-coalition-bar {
+    background: #f4f7ff; border-radius: 10px;
+    padding: 10px 16px; margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+    border: 1px solid #dce7ff;
+  }
+  .iht-coalition-label { font-size: .78rem; color: #555; flex-shrink: 0; }
+  .iht-coalition-track {
+    flex: 1; height: 12px; background: #dce7ff; border-radius: 6px; overflow: hidden;
+    position: relative;
+  }
+  .iht-coalition-fill {
+    height: 100%; border-radius: 6px;
+    background: linear-gradient(90deg, #d62d20, #e8603e);
+    transition: width .8s ease;
+  }
+  .iht-coalition-marker {
+    position: absolute; right: 50.8%; top: -3px;
+    width: 2px; height: 18px; background: #0d2461; border-radius: 2px;
+  }
+  .iht-coalition-num { font-size: .82rem; font-weight: 700; color: #0d2461; flex-shrink: 0; }
+  .iht-coalition-needed { font-size: .75rem; color: #888; flex-shrink: 0; }
+
+  /* ── הגרף ── */
+  .iht-chart-wrap { position: relative; }
+
+  /* ── Legend מגמות ── */
+  .iht-legend {
+    display: flex; gap: 14px; margin: 10px 0 4px;
+    font-size: .73rem; color: #666; flex-wrap: wrap;
+  }
+  .iht-legend-item { display: flex; align-items: center; gap: 4px; }
+  .iht-legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ── טאגים מחנות ── */
+  .iht-camps {
+    display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 0;
+  }
+  .iht-camp {
+    font-size: .72rem; padding: 3px 10px; border-radius: 20px;
+    border: 1px solid; display: flex; align-items: center; gap: 5px;
+  }
+  .iht-camp-seats { font-weight: 700; }
+
+  /* ── אזהרה ── */
+  .iht-warning {
+    margin-top: 12px; padding: 7px 12px;
+    background: #fff8e1; border-right: 4px solid #f0a500;
+    border-radius: 5px; font-size: .78rem; color: #7a6000;
+  }
+
+  /* ── שקיפות ── */
+  .iht-details {
+    margin-top: 14px; border: 1px solid #e0e8f8;
+    border-radius: 10px; overflow: hidden;
+  }
+  .iht-details summary {
+    padding: 10px 16px; cursor: pointer;
+    font-size: .8rem; font-weight: 600; color: #0d2461;
+    background: #f4f7ff; list-style: none; user-select: none;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .iht-details summary::-webkit-details-marker { display: none; }
+  .iht-details-body { padding: 14px 18px; font-size: .78rem; color: #444; line-height: 1.8; }
+  .iht-details-body table { width: 100%; border-collapse: collapse; }
+  .iht-details-body th {
+    padding: 5px 8px; text-align: right; font-weight: 600;
+    background: #f0f4ff; color: #0d2461;
+  }
+  .iht-details-body td { padding: 5px 8px; }
+  .iht-details-body tr:nth-child(even) td { background: #fafafa; }
+
+  /* ── Footer ── */
+  .iht-footer {
+    background: #f4f7ff; border-top: 1px solid #e0e8f8;
+    padding: 8px 22px; font-size: .7rem; color: #8898be;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 4px;
+  }
+  .iht-footer a { color: #8898be; text-decoration: none; }
+  .iht-footer a:hover { text-decoration: underline; }
+
+  /* ── רספונסיבי ── */
+  @media (max-width: 480px) {
+    .iht-header { padding: 14px 14px 10px; }
+    .iht-body { padding: 14px 14px 10px; }
+    .iht-footer { padding: 8px 14px; }
+    .iht-tagline { padding: 8px 14px; }
+    .iht-coalition-bar { flex-wrap: wrap; gap: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-note">
+  👁️ <strong>תצוגה מקדימה — עיצוב בלבד.</strong> הנתונים לדוגמה. לחץ על "איך מחושב המדד?" לפרטים.
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="iht-widget">
+
+  <!-- Header -->
+  <div class="iht-header">
+    <div class="iht-logo-area">
+      <div class="iht-logo-box">ישראל<br>היום</div>
+      <div>
+        <div class="iht-header-title">מדד המומנטום הפוליטי</div>
+        <div class="iht-header-sub">בחירות 2026 · עדכון אוטומטי כל 6 שעות</div>
+      </div>
+    </div>
+    <div class="iht-updated-badge">🕐 עודכן: 28/05/2026 14:00</div>
+  </div>
+
+  <!-- Tagline -->
+  <div class="iht-tagline">
+    💡 <span>מה זה מדד מומנטום?</span> שילוב של סקרים עדכניים, חיפושים בגוגל ושווקי תחזיות — כדי לראות <strong>לאן נושבת הרוח</strong>
+  </div>
+
+  <!-- Body -->
+  <div class="iht-body">
+
+    <!-- מד קואליציה -->
+    <div class="iht-coalition-bar">
+      <div class="iht-coalition-label">בלוק ימין:</div>
+      <div class="iht-coalition-track">
+        <div class="iht-coalition-fill" style="width:62.5%"></div>
+        <div class="iht-coalition-marker" title="61 = רוב"></div>
+      </div>
+      <div class="iht-coalition-num">75 מנדטים</div>
+      <div class="iht-coalition-needed">61 = רוב</div>
+    </div>
+
+    <!-- Chart legend -->
+    <div class="iht-legend">
+      <div class="iht-legend-item"><div class="iht-legend-dot" style="background:#27ae60"></div> עולה במגמה</div>
+      <div class="iht-legend-item"><div class="iht-legend-dot" style="background:#e74c3c"></div> יורד במגמה</div>
+      <div class="iht-legend-item"><div class="iht-legend-dot" style="background:#7f8c8d"></div> יציב</div>
+    </div>
+
+    <!-- הגרף -->
+    <div class="iht-chart-wrap" style="position:relative;height:380px;margin-top:8px">
+      <canvas id="mw-chart"></canvas>
+    </div>
+
+    <!-- מחנות -->
+    <div class="iht-camps">
+      <div class="iht-camp" style="background:#fff0f0;border-color:#d62d20;color:#8a1010">
+        🔵 ימין <span class="iht-camp-seats">75</span> מנדטים
+      </div>
+      <div class="iht-camp" style="background:#f0f5ff;border-color:#3a6cc8;color:#1a3a7a">
+        🟦 מרכז-שמאל <span class="iht-camp-seats">36</span> מנדטים
+      </div>
+      <div class="iht-camp" style="background:#f0fff4;border-color:#2e7d32;color:#1a4d20">
+        🟢 ערבי <span class="iht-camp-seats">9</span> מנדטים
+      </div>
+    </div>
+
+    <!-- אזהרה (לדמו) -->
+    <div class="iht-warning">
+      ⚠️ Polymarket לא זמין כרגע — הנתונים מבוססים על שאר המקורות (סקרים + גוגל)
+    </div>
+
+    <!-- שקיפות -->
+    <details class="iht-details">
+      <summary>ℹ️ איך מחושב המדד? ▾</summary>
+      <div class="iht-details-body">
+        <p style="margin-bottom:10px">המדד <strong>אינו סקר</strong> — הוא מחשב אוטומטית שילוב של מקורות שונים:</p>
+        <table>
+          <thead><tr>
+            <th>מקור</th><th style="text-align:center">משקל</th><th style="text-align:center">סטטוס</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>סקרים (ynet, מעריב, וואלה, N12)</td><td style="text-align:center">50%</td><td style="text-align:center">✅</td></tr>
+            <tr><td>גוגל טרנדס (חיפושים ישראל)</td><td style="text-align:center">20%</td><td style="text-align:center">✅</td></tr>
+            <tr><td>Polymarket (שוק תחזיות בינ"ל)</td><td style="text-align:center">20%</td><td style="text-align:center">❌</td></tr>
+            <tr><td>נתוני כנסת רשמיים (בסיס)</td><td style="text-align:center">10%</td><td style="text-align:center">✅</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:10px;font-size:.74rem;color:#888">
+          מוצגות מפלגות מעל מחסום הבחירות (3.25%). מקור שנכשל — משקלו מתחלק אוטומטית בין השאר.
+          הנתונים מתעדכנים כל 6 שעות. <strong>אין בנתונים המלצה פוליטית.</strong>
+        </p>
+      </div>
+    </details>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="iht-footer">
+    <span>© ישראל היום · כל הזכויות שמורות</span>
+    <span>נתונים: RSS · Google Trends · Polymarket · כנסת</span>
+  </div>
+
+</div>
+<!-- ═══════════════════════════════════════════════════════════════ -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script>
+var PARTIES = [
+  { name:"ליכוד",          score:29.5, trend:"stable", camp:"right"  },
+  { name:"יש עתיד",        score:21.0, trend:"up",     camp:"center" },
+  { name:"מחנה המדינה",    score:13.5, trend:"down",   camp:"center" },
+  { name:'ש"ס',            score:11.0, trend:"stable", camp:"right"  },
+  { name:"הציונות הדתית",  score: 9.0, trend:"up",     camp:"right"  },
+  { name:"יהדות התורה",    score: 7.5, trend:"stable", camp:"right"  },
+  { name:"ישראל ביתנו",    score: 6.5, trend:"up",     camp:"right"  },
+  { name:"עבודה",          score: 5.0, trend:"down",   camp:"center" },
+  { name:'רע"מ',           score: 4.5, trend:"stable", camp:"arab"   },
+  { name:'חד"ש-תע"ל',     score: 4.0, trend:"stable", camp:"arab"   },
+  { name:"מרצ",            score: 3.5, trend:"down",   camp:"center" },
+];
+
+var TREND_ICON  = { up:"↑", down:"↓", stable:"→" };
+var TREND_COLOR = { up:"#27ae60", down:"#e74c3c", stable:"#7f8c8d" };
+
+var CAMP_COLORS = {
+  right:  "#d62d20",
+  center: "#2a5fc8",
+  arab:   "#2e7d32",
+};
+
+var labels = PARTIES.map(function(p){
+  return p.name + "  " + TREND_ICON[p.trend];
+});
+var values = PARTIES.map(function(p){ return p.score; });
+var bgColors = PARTIES.map(function(p){
+  return CAMP_COLORS[p.camp] + "cc";
+});
+var bdColors = PARTIES.map(function(p){
+  return CAMP_COLORS[p.camp];
+});
+
+var ctx = document.getElementById("mw-chart").getContext("2d");
+new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: labels,
+    datasets: [{
+      data: values,
+      backgroundColor: bgColors,
+      borderColor: bdColors,
+      borderWidth: 2,
+      borderRadius: 5,
+    }]
+  },
+  options: {
+    indexAxis: "y",
+    animation: { duration: 900, easing: "easeOutQuart" },
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        rtl: true,
+        callbacks: {
+          label: function(ctx){
+            var p = PARTIES[ctx.dataIndex];
+            return " " + p.score + " מנדטים (אומדן)  " + TREND_ICON[p.trend];
+          }
+        }
+      },
+      // קו אנוטציה של 61 מנדטים (ממחשב)
+      annotation: undefined
+    },
+    scales: {
+      x: {
+        beginAtZero: true,
+        max: 35,
+        title: { display: true, text: "מנדטים (אומדן)", font: { size: 11 } },
+        ticks: { stepSize: 5 },
+        grid: { color: "#eef0f5" }
+      },
+      y: {
+        grid: { display: false },
+        ticks: {
+          font: { size: 13 },
+          color: function(ctx){
+            var p = PARTIES[ctx.index];
+            return p ? TREND_COLOR[p.trend] : "#333";
+          }
+        }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
