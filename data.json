@@ -1,12 +1,24 @@
 {
-  "updated": "04/06/2026 21:20",
-  "sources_used": [],
+  "updated": "05/06/2026 10:59",
+  "sources_used": [
+    "google_trends"
+  ],
   "sources_failed": [
     "ynet_rss",
     "scraping",
-    "google_trends",
     "polymarket",
     "knesset"
   ],
-  "parties": []
+  "parties": [
+    {
+      "name": "ישראל ביתנו",
+      "score": 30.0,
+      "trend": "stable"
+    },
+    {
+      "name": "יש עתיד",
+      "score": 13.6,
+      "trend": "stable"
+    }
+  ]
 }
