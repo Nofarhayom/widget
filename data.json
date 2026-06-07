@@ -1,5 +1,5 @@
 {
-  "updated": "07/06/2026 09:52",
+  "updated": "07/06/2026 15:14",
   "sources_used": [
     "google_trends"
   ],
@@ -16,24 +16,14 @@
       "trend": "stable"
     },
     {
-      "name": "מחנה המדינה",
-      "score": 2.6,
-      "trend": "stable"
-    },
-    {
-      "name": "ליכוד",
-      "score": 2.5,
-      "trend": "stable"
-    },
-    {
       "name": "ש\"ס",
-      "score": 2.4,
-      "trend": "stable"
+      "score": 8.0,
+      "trend": "up"
     },
     {
       "name": "יש עתיד",
-      "score": 1.9,
-      "trend": "stable"
+      "score": 6.6,
+      "trend": "up"
     }
   ]
 }
