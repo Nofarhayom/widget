@@ -1,19 +1,12 @@
 {
-  "updated": "18/06/2026 23:41",
-  "sources_used": [
-    "google_trends"
-  ],
+  "updated": "19/06/2026 09:04",
+  "sources_used": [],
   "sources_failed": [
     "ynet_rss",
     "scraping",
+    "google_trends",
     "polymarket",
     "knesset"
   ],
-  "parties": [
-    {
-      "name": "יש עתיד",
-      "score": 30.0,
-      "trend": "stable"
-    }
-  ]
+  "parties": []
 }
