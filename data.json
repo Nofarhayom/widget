@@ -1,12 +1,29 @@
 {
-  "updated": "16/08/2026 16:17",
-  "sources_used": [],
+  "updated": "16/08/2026 22:15",
+  "sources_used": [
+    "google_trends"
+  ],
   "sources_failed": [
     "ynet_rss",
     "scraping",
-    "google_trends",
     "polymarket",
     "knesset"
   ],
-  "parties": []
+  "parties": [
+    {
+      "name": "ליכוד",
+      "score": 30.0,
+      "trend": "stable"
+    },
+    {
+      "name": "ש\"ס",
+      "score": 5.7,
+      "trend": "stable"
+    },
+    {
+      "name": "מחנה המדינה",
+      "score": 1.9,
+      "trend": "stable"
+    }
+  ]
 }
