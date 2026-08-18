@@ -1,5 +1,5 @@
 {
-  "updated": "17/08/2026 22:18",
+  "updated": "18/08/2026 04:30",
   "sources_used": [
     "google_trends"
   ],
@@ -17,11 +17,6 @@
     },
     {
       "name": "ש\"ס",
-      "score": 2.5,
-      "trend": "down"
-    },
-    {
-      "name": "מחנה המדינה",
       "score": 1.5,
       "trend": "stable"
     }
