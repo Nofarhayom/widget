@@ -1,19 +1,12 @@
 {
-  "updated": "19/08/2026 10:22",
-  "sources_used": [
-    "google_trends"
-  ],
+  "updated": "19/08/2026 16:24",
+  "sources_used": [],
   "sources_failed": [
     "ynet_rss",
     "scraping",
+    "google_trends",
     "polymarket",
     "knesset"
   ],
-  "parties": [
-    {
-      "name": "ליכוד",
-      "score": 30.0,
-      "trend": "stable"
-    }
-  ]
+  "parties": []
 }
