@@ -1,5 +1,5 @@
 {
-  "updated": "23/08/2026 10:18",
+  "updated": "23/08/2026 16:18",
   "sources_used": [
     "google_trends"
   ],
@@ -17,7 +17,7 @@
     },
     {
       "name": "ש\"ס",
-      "score": 1.4,
+      "score": 1.2,
       "trend": "stable"
     }
   ]
