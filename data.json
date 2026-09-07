@@ -1,5 +1,5 @@
 {
-  "updated": "07/09/2026 15:27",
+  "updated": "07/09/2026 19:32",
   "sources_used": [
     "google_trends"
   ],
@@ -11,14 +11,24 @@
   ],
   "parties": [
     {
-      "name": "מחנה המדינה",
+      "name": "ישראל ביתנו",
       "score": 30.0,
       "trend": "up"
     },
     {
-      "name": "ישראל ביתנו",
-      "score": 21.1,
-      "trend": "down"
+      "name": "ליכוד",
+      "score": 8.2,
+      "trend": "stable"
+    },
+    {
+      "name": "יש עתיד",
+      "score": 4.9,
+      "trend": "stable"
+    },
+    {
+      "name": "ש\"ס",
+      "score": 2.6,
+      "trend": "stable"
     }
   ]
 }
