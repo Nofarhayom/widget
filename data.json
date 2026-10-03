@@ -1,5 +1,5 @@
 {
-  "updated": "03/10/2026 00:53",
+  "updated": "03/10/2026 09:36",
   "sources_used": [
     "google_trends"
   ],
@@ -16,19 +16,9 @@
       "trend": "stable"
     },
     {
-      "name": "יש עתיד",
-      "score": 13.6,
-      "trend": "up"
-    },
-    {
       "name": "ליכוד",
-      "score": 11.4,
-      "trend": "up"
-    },
-    {
-      "name": "ש\"ס",
-      "score": 3.5,
-      "trend": "down"
+      "score": 12.1,
+      "trend": "stable"
     }
   ]
 }
