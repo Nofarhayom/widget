@@ -1,5 +1,5 @@
 {
-  "updated": "14/10/2026 19:56",
+  "updated": "15/10/2026 00:15",
   "sources_used": [
     "google_trends"
   ],
@@ -17,12 +17,12 @@
     },
     {
       "name": "ש\"ס",
-      "score": 16.4,
-      "trend": "up"
+      "score": 12.8,
+      "trend": "down"
     },
     {
       "name": "ליכוד",
-      "score": 15.1,
+      "score": 12.0,
       "trend": "down"
     }
   ]
