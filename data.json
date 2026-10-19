@@ -1,5 +1,5 @@
 {
-  "updated": "18/10/2026 23:52",
+  "updated": "19/10/2026 09:31",
   "sources_used": [
     "google_trends"
   ],
@@ -11,18 +11,18 @@
   ],
   "parties": [
     {
-      "name": "ש\"ס",
+      "name": "ישראל ביתנו",
       "score": 30.0,
       "trend": "up"
     },
     {
-      "name": "ישראל ביתנו",
-      "score": 27.0,
-      "trend": "up"
+      "name": "ליכוד",
+      "score": 17.3,
+      "trend": "down"
     },
     {
-      "name": "ליכוד",
-      "score": 18.8,
+      "name": "ש\"ס",
+      "score": 16.8,
       "trend": "down"
     }
   ]
