@@ -1,29 +1,12 @@
 {
-  "updated": "26/10/2026 09:35",
-  "sources_used": [
-    "google_trends"
-  ],
+  "updated": "26/10/2026 16:25",
+  "sources_used": [],
   "sources_failed": [
     "ynet_rss",
     "scraping",
+    "google_trends",
     "polymarket",
     "knesset"
   ],
-  "parties": [
-    {
-      "name": "ישראל ביתנו",
-      "score": 30.0,
-      "trend": "stable"
-    },
-    {
-      "name": "ש\"ס",
-      "score": 23.8,
-      "trend": "up"
-    },
-    {
-      "name": "ליכוד",
-      "score": 20.4,
-      "trend": "up"
-    }
-  ]
+  "parties": []
 }
