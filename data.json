@@ -1,10 +1,10 @@
 {
-  "updated": "28/10/2026 00:54",
+  "updated": "28/10/2026 10:16",
   "sources_used": [
+    "ynet_rss",
     "google_trends"
   ],
   "sources_failed": [
-    "ynet_rss",
     "scraping",
     "polymarket",
     "knesset"
@@ -17,12 +17,17 @@
     },
     {
       "name": "ליכוד",
-      "score": 21.1,
-      "trend": "down"
+      "score": 21.8,
+      "trend": "stable"
     },
     {
       "name": "ישראל ביתנו",
-      "score": 20.6,
+      "score": 20.8,
+      "trend": "stable"
+    },
+    {
+      "name": "רע\"מ",
+      "score": 7.0,
       "trend": "stable"
     }
   ]
