@@ -1,5 +1,5 @@
 {
-  "updated": "03/11/2026 21:27",
+  "updated": "04/11/2026 01:50",
   "sources_used": [
     "google_trends"
   ],
@@ -17,12 +17,12 @@
     },
     {
       "name": "ישראל ביתנו",
-      "score": 13.5,
+      "score": 12.5,
       "trend": "stable"
     },
     {
       "name": "ליכוד",
-      "score": 13.3,
+      "score": 10.7,
       "trend": "down"
     }
   ]
